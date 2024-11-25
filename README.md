@@ -1,5 +1,9 @@
 # Rede de Entregas
 
+Alunos:
+- Lucas Arruda Cazetto
+- Thiago Nelsi do Couto
+
 Este projeto simula o comportamento de uma rede de entregas, onde encomendas são transportadas por veículos de um ponto de redistribuição para outro. A sincronização é feita utilizando semáforos e variáveis de trava (locks).
 
 ## Estrutura do Projeto
