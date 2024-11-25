@@ -28,7 +28,7 @@ class PontoDeRedistribuicao(threading.Thread):
             encomenda = self.aguardando_transporte.pop(0)
             encomenda.t_carregamento = hora_de_carregamento
             encomenda.veiculo = veiculo.id
-            veiculo.carregar_encomenda(encomenda)
+            veiculo.carga.append(encomenda)
         veiculo.carregando = False
 
     def descarregar(self, veiculo):

@@ -31,10 +31,6 @@ class Veiculo(threading.Thread):
     def get_capacidade_atual(self):
         return self.capacidade_total - len(self.carga)
 
-    def carregar_encomenda(self, encomenda: Encomenda) -> None:
-        if self.get_capacidade_atual() > 0:
-            self.carga.append(encomenda)
-
     def descarregar_encomendas(self, destino: int) -> list[Encomenda]:
         encomendas = []
         for encomenda in self.carga[:]:
