@@ -3,23 +3,19 @@ import random
 import time
 from Encomenda import Encomenda
 from PontoDeRedistribuicao import PontoDeRedistribuicao
-from constants import P
+from constants import P, S, A
 
 class Veiculo(threading.Thread):
     veiculos = []
 
     def __init__(
             self,
-            id:int,
-            capacidade_total: int,
-            S: int,
-            pontos_de_redistribuicao: list[PontoDeRedistribuicao]
+            id:int
         ):
         super().__init__()
         self.id = id
-        self.capacidade_total = capacidade_total
-        self.S = S
-        self.pontos_de_redistribuicao = pontos_de_redistribuicao
+        self.capacidade_total = A
+        self.pontos_de_redistribuicao = PontoDeRedistribuicao.pontos_de_redistribuicao
         self.carga: list[Encomenda] = []
         self.lock = threading.Lock()
         self.ponto_de_redistribuicao = random.randint(0, S - 1)
@@ -52,13 +48,12 @@ class Veiculo(threading.Thread):
             self.pontos_de_redistribuicao[self.ponto_de_redistribuicao].estacionar(self)
             self.lock.acquire()
 
-            if len(self.carga) == 0:
-                if len(PontoDeRedistribuicao.get_aguardando_transporte()) == 0:
-                    break
+            if len(self.carga) == 0 and len(PontoDeRedistribuicao.get_aguardando_transporte()) == 0:
+                break
 
             self.em_viagem = True
-            self.viagem = [self.ponto_de_redistribuicao, (self.ponto_de_redistribuicao + 1) % self.S]
+            self.viagem = [self.ponto_de_redistribuicao, (self.ponto_de_redistribuicao + 1) % S]
             time.sleep(random.randint(3, 5))
-            self.ponto_de_redistribuicao = (self.ponto_de_redistribuicao + 1) % self.S
+            self.ponto_de_redistribuicao = (self.ponto_de_redistribuicao + 1) % S
             self.em_viagem = False
             self.viagem = [None, None]

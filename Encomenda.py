@@ -10,6 +10,7 @@ class Encomenda(threading.Thread):
         self.origem = origem
         self.destino = destino
         self.lock = threading.Lock()
+
         self.t_origem: float = None
         self.t_carregamento: float = None
         self.veiculo: float = None
@@ -18,7 +19,7 @@ class Encomenda(threading.Thread):
         self.lock.acquire()
 
     def run(self):
-        self.lock.acquire()
+        # timestamp -> segundos desde 01/01/1970
 
         t_origem_str = time.strftime("%d/%m/%Y %H:%M:%S", time.localtime(self.t_origem))
         t_carregamento_str = time.strftime("%d/%m/%Y %H:%M:%S", time.localtime(self.t_carregamento))
@@ -32,7 +33,3 @@ class Encomenda(threading.Thread):
             file.write(f"Horário de carregamento no veículo: {t_carregamento_str}\n")
             file.write(f"Identificador do veículo: {self.veiculo}\n")
             file.write(f"Horário de descarregamento no ponto de destino: {t_descarregamento_str}\n")
-
-    def finalizar_entrega(self):
-        self.t_descarregamento = time.time()
-        self.lock.release()

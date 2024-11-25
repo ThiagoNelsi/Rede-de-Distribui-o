@@ -28,7 +28,6 @@ class PontoDeRedistribuicao(threading.Thread):
             encomenda = self.aguardando_transporte.pop(0)
             encomenda.t_carregamento = hora_de_carregamento
             encomenda.veiculo = veiculo.id
-            encomenda.start()
             veiculo.carregar_encomenda(encomenda)
         veiculo.carregando = False
 
@@ -37,7 +36,8 @@ class PontoDeRedistribuicao(threading.Thread):
         time.sleep(random.randint(3, 4))
         encomendas = veiculo.descarregar_encomendas(self.id)
         for encomenda in encomendas:
-            encomenda.finalizar_entrega()
+            encomenda.t_descarregamento = time.time()
+            encomenda.start()
             self.entregues.append(encomenda)
         veiculo.descarregando = False
 

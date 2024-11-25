@@ -10,11 +10,11 @@ from constants import *
 # time.sleep = lambda x: None
 
 def main():
-    Interface().start()
-
     if not (P > A > C):
         print(f'[ERRO] P = {P}, A = {A}, C = {C} não satisfazem P > A > C\n')
         return
+
+    Interface().start()
 
     for i in range(S):
         PontoDeRedistribuicao.pontos_de_redistribuicao.append(PontoDeRedistribuicao(i))
@@ -29,7 +29,7 @@ def main():
         Encomenda.encomendas[-1].t_origem = time.time()
 
     for i in range(C):
-        veiculo = Veiculo(i, A, S, PontoDeRedistribuicao.pontos_de_redistribuicao)
+        veiculo = Veiculo(i)
         Veiculo.veiculos.append(veiculo)
         PontoDeRedistribuicao.pontos_de_redistribuicao[veiculo.ponto_de_redistribuicao].estacionar(veiculo)
 
@@ -39,6 +39,8 @@ def main():
 
     for i in Veiculo.veiculos:
         i.start()
+
+    for i in Veiculo.veiculos:
         i.join()
 
     for i in PontoDeRedistribuicao.pontos_de_redistribuicao:
