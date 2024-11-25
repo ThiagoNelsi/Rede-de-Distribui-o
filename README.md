@@ -10,7 +10,7 @@ O projeto é dividido em várias classes principais:
 - `Veiculo`: Representa um veículo que transporta encomendas.
 - `PontoDeRedistribuicao`: Representa um ponto de redistribuição onde as encomendas são carregadas e descarregadas.
 - `Interface`: Interface para monitoramento em tempo real.
-- `constants.py`: Contém as constantes S, C, P e A que definem o número de pontos de redistribuição, veículos, encomendas e espaços de carga, respectivamente.
+- `entradas.py`: Contém as entradas S, C, P e A que definem o número de pontos de redistribuição, veículos, encomendas e espaços de carga, respectivamente.
 
 ## Implementação
 

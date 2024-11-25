@@ -5,7 +5,7 @@ from Encomenda import Encomenda
 from Veiculo import Veiculo
 from PontoDeRedistribuicao import PontoDeRedistribuicao
 from interface_monitoramento import Interface
-from constants import *
+from entradas import *
 
 # time.sleep = lambda x: None
 

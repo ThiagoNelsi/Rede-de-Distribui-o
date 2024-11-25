@@ -1,7 +1,7 @@
 Encomenda ID: 0
 Origem: 0
-Destino: 1
-Horário de chegada ao ponto de origem: 25/11/2024 01:20:54
-Horário de carregamento no veículo: 25/11/2024 01:21:21
-Identificador do veículo: 0
-Horário de descarregamento no ponto de destino: 25/11/2024 01:21:29
+Destino: 2
+Horário de chegada ao ponto de origem: 25/11/2024 15:05:22
+Horário de carregamento no veículo: 25/11/2024 15:05:25
+Identificador do veículo: 1
+Horário de descarregamento no ponto de destino: 25/11/2024 15:05:47

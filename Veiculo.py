@@ -3,7 +3,7 @@ import random
 import time
 from Encomenda import Encomenda
 from PontoDeRedistribuicao import PontoDeRedistribuicao
-from constants import P, S, A
+from entradas import P, S, A
 
 class Veiculo(threading.Thread):
     veiculos = []
